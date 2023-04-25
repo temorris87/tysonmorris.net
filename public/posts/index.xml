@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tyson Morris</title>
-    <link>http://www.tysonmorris.net/</link>
-    <description>Recent content on Tyson Morris</description>
+    <title>Posts on Tyson Morris</title>
+    <link>http://www.tysonmorris.net/posts/</link>
+    <description>Recent content in Posts on Tyson Morris</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 26 Jan 2020 23:11:13 +0000</lastBuildDate><atom:link href="http://www.tysonmorris.net/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 26 Jan 2020 23:11:13 +0000</lastBuildDate><atom:link href="http://www.tysonmorris.net/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>My First Post</title>
       <link>http://www.tysonmorris.net/posts/my-first-post/</link>

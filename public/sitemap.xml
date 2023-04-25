@@ -2,10 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://www.tysonmorris.net/categories/</loc>
+    <loc>http://www.tysonmorris.net/tags/bar/</loc>
+    <lastmod>2020-01-26T23:11:13+00:00</lastmod>
+  </url><url>
+    <loc>http://www.tysonmorris.net/tags/foo/</loc>
+    <lastmod>2020-01-26T23:11:13+00:00</lastmod>
+  </url><url>
+    <loc>http://www.tysonmorris.net/posts/my-first-post/</loc>
+    <lastmod>2020-01-26T23:11:13+00:00</lastmod>
+  </url><url>
+    <loc>http://www.tysonmorris.net/posts/</loc>
+    <lastmod>2020-01-26T23:11:13+00:00</lastmod>
   </url><url>
     <loc>http://www.tysonmorris.net/tags/</loc>
+    <lastmod>2020-01-26T23:11:13+00:00</lastmod>
   </url><url>
     <loc>http://www.tysonmorris.net/</loc>
+    <lastmod>2020-01-26T23:11:13+00:00</lastmod>
+  </url><url>
+    <loc>http://www.tysonmorris.net/categories/</loc>
   </url>
 </urlset>

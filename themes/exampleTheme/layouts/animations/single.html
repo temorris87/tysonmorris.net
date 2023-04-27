@@ -1,0 +1,9 @@
+{{ define "main" }}
+  <h1>{{ .Title }}</h1>
+  <div id="p5canvas"></div>
+  {{ .Content }}
+  {{- range .Params.js }}
+  	<script src="{{ . }}.js"></script>
+  {{- end }}
+  <script src="/js/p5.min.js"></script>
+{{ end }}

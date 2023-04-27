@@ -1,0 +1,51 @@
+* {
+	background-color: rgb(12,12,12);
+}
+
+body {
+	width: 60vw;
+	margin: auto;
+	color: #FFFFFF;
+	opacity: 87%;
+}
+
+a {
+	color: #2196F3;
+}
+
+#p5canvas {
+	display: flex;
+	justify-content: center;
+	margin: 2em 0;
+}
+
+#logo {
+	display: flex;
+	justify-content: center;
+	font-size: 2em;
+}
+
+#nav-border {
+	display: flex;
+	justify-content: space-between;
+	border-bottom: 1px solid #FFFFFF;
+	opacity: 87%;
+}
+
+#nav {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+.nav-link {
+	font-size: 2em;
+	margin-left: 20px;
+	text-decoration: none;
+	color: #FFFFFF;
+	opacity: 87%;
+}
+
+.nav-link:hover {
+	color: #2196F3;
+}

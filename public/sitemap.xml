@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://www.tysonmorris.net/animations/</loc>
+    <lastmod>2023-04-26T22:06:36-04:00</lastmod>
+  </url><url>
+    <loc>http://www.tysonmorris.net/animations/test-animation/test-animation/</loc>
+    <lastmod>2023-04-26T22:06:36-04:00</lastmod>
+  </url><url>
+    <loc>http://www.tysonmorris.net/</loc>
+    <lastmod>2023-04-26T22:06:36-04:00</lastmod>
+  </url><url>
     <loc>http://www.tysonmorris.net/tags/bar/</loc>
     <lastmod>2020-01-26T23:11:13+00:00</lastmod>
   </url><url>
@@ -15,9 +24,6 @@
     <lastmod>2020-01-26T23:11:13+00:00</lastmod>
   </url><url>
     <loc>http://www.tysonmorris.net/tags/</loc>
-    <lastmod>2020-01-26T23:11:13+00:00</lastmod>
-  </url><url>
-    <loc>http://www.tysonmorris.net/</loc>
     <lastmod>2020-01-26T23:11:13+00:00</lastmod>
   </url><url>
     <loc>http://www.tysonmorris.net/categories/</loc>

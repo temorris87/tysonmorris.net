@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>01 — Hello, SVG · Generative Art with JavaScript and SVG</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="container header__inner">
+      <a href="/home/" class="header__logo">Portfolio</a>
+      <nav class="header__nav">
+        <a href="/home/blog/" class="nav-link">Blog</a>
+        <a href="/home/projects/" class="nav-link active">Projects</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-hero">
+      <div class="container">
+        <a href="/home/projects/generative-art-js-svg/" class="back-link">&#8592; Generative Art with JavaScript and SVG</a>
+        <h1>01 — Hello, SVG</h1>
+        <p>A first canvas: verifying the SVG setup with a simple square.</p>
+      </div>
+    </div>
+
+    <div class="canvas-section">
+      <div class="container">
+        <div class="canvas-wrap">
+          <svg xmlns="http://www.w3.org/2000/svg"
+               viewBox="0 0 1800 1200"
+               id="canvas">
+
+            <!-- Background -->
+            <rect width="1800" height="1200" fill="#1a1a2e"/>
+
+            <!-- Centered square -->
+            <rect x="650" y="350" width="500" height="500"
+                  fill="none"
+                  stroke="#9FA8DA"
+                  stroke-width="4"/>
+
+          </svg>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> Your Name</p>
+    </div>
+  </footer>
+
+  <script type="module" src="./hello-svg.js"></script>
+
+</body>
+</html>

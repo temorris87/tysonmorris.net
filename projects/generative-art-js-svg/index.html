@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
 
@@ -24,6 +24,7 @@
   <main>
     <div class="page-hero">
       <div class="container">
+        <a href="/projects/" class="back-link">&#8592; Projects</a>
         <h1>Generative Art with JavaScript and SVG</h1>
         <p>
           The experiments in this series are inspired by the book
@@ -52,9 +53,7 @@
     </div>
   </footer>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+  <script type="module" src="/src/shared/page.js"></script>
 
 </body>
 </html>

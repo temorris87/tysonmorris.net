@@ -17,14 +17,13 @@ npm run preview  # preview the production build
 ## Structure
 
 ```
-home/
-  index.html           # Landing page (bio + profile image)
-  blog/index.html      # Blog post listing
-  projects/index.html  # Projects listing
-    generative-art-js-svg/index.html
-      01-hello-svg/
-        index.html
-        hello-svg.js   # Co-located with its HTML
+index.html             # Landing page (bio + profile image)
+blog/index.html        # Blog post listing
+projects/index.html    # Projects listing
+  generative-art-js-svg/index.html
+    01-hello-svg/
+      index.html
+      hello-svg.js     # Co-located with its HTML
 css/style.css          # Shared stylesheet
 src/shared/
   utils.js             # Exported utility functions (setYear, etc.)
@@ -32,8 +31,8 @@ src/shared/
 vite.config.js         # Multi-page entry points — add new pages here
 ```
 
-New blog posts go in `home/blog/` linked from `home/blog/index.html`.
-New projects go in `home/projects/` linked from `home/projects/index.html`.
+New blog posts go in `blog/` linked from `blog/index.html`.
+New projects go in `projects/` linked from `projects/index.html`.
 ## Design system
 
 - **Font:** Roboto (Google Fonts) — weights 300, 400, 500, 700

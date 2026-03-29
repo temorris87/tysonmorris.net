@@ -91,6 +91,8 @@ body {
 
 main {
   flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 /* ── Hero / About ────────────────────────────────────── */
@@ -290,17 +292,16 @@ main {
 /* ── SVG canvas (experiment pages) ──────────────────── */
 
 .canvas-section {
-  padding: 40px 0 64px;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 40px 0;
 }
 
 .canvas-wrap {
   width: 100%;
   max-width: 1800px;
-  aspect-ratio: 1800 / 1200;
-  background: var(--surface);
-  border-radius: var(--radius);
   overflow: hidden;
-  box-shadow: var(--shadow-2);
 }
 
 .canvas-wrap > div {

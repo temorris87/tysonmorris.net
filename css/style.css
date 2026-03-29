@@ -303,6 +303,11 @@ main {
   box-shadow: var(--shadow-2);
 }
 
+.canvas-wrap > div {
+  width: 100%;
+  height: 100%;
+}
+
 .canvas-wrap svg {
   display: block;
   width: 100%;

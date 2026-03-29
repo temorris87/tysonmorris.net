@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generative Art with JavaScript and SVG — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="container header__inner">
+      <a href="/" class="header__logo">Portfolio</a>
+      <nav class="header__nav">
+        <a href="/blog/" class="nav-link">Blog</a>
+        <a href="/projects/" class="nav-link active">Projects</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-hero">
+      <div class="container">
+        <h1>Generative Art with JavaScript and SVG</h1>
+        <p>
+          The experiments in this series are inspired by the book
+          <em>Generative Art with JavaScript and SVG</em> by David Matthew.
+          Each piece works through the techniques and ideas from the book,
+          implemented from scratch as a way to learn by doing.
+        </p>
+      </div>
+    </div>
+
+    <div class="container">
+      <ul class="experiment-list">
+        <li>
+          <a href="/projects/generative-art-js-svg/01-hello-svg/">
+            <span class="experiment-list__number">01</span>
+            <span class="experiment-list__title">Hello, SVG</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> Your Name</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>

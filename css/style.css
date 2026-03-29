@@ -1,0 +1,333 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --primary: #9FA8DA;        /* Indigo 200 — lightened for dark bg contrast */
+  --primary-dark: #7986CB;   /* Indigo 300 */
+  --on-primary: #000000;
+  --background: #121212;
+  --surface: #1E1E1E;
+  --surface-raised: #272727;
+  --on-surface: rgba(255, 255, 255, 0.87);
+  --text-secondary: rgba(255, 255, 255, 0.60);
+  --divider: rgba(255, 255, 255, 0.12);
+  --shadow-1: 0 1px 3px rgba(0, 0, 0, 0.5), 0 1px 2px rgba(0, 0, 0, 0.6);
+  --shadow-2: 0 3px 6px rgba(0, 0, 0, 0.6), 0 2px 4px rgba(0, 0, 0, 0.5);
+  --radius: 4px;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background: var(--background);
+  color: var(--on-surface);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── Header ─────────────────────────────────────────── */
+
+.header {
+  background: var(--surface);
+  color: var(--on-surface);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: var(--shadow-2);
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+
+.header__logo {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--on-surface);
+  text-decoration: none;
+  letter-spacing: 0.0125em;
+}
+
+.header__nav {
+  display: flex;
+  gap: 4px;
+}
+
+.nav-link {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 8px 16px;
+  border-radius: var(--radius);
+  transition: color 0.15s ease, background 0.15s ease;
+}
+
+.nav-link:hover {
+  color: var(--on-surface);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.nav-link.active {
+  color: var(--primary);
+}
+
+/* ── Main content ────────────────────────────────────── */
+
+main {
+  flex: 1;
+}
+
+/* ── Hero / About ────────────────────────────────────── */
+
+.hero {
+  padding: 80px 0 96px;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 64px;
+}
+
+.profile__image-placeholder {
+  width: 200px;
+  height: 200px;
+  min-width: 200px;
+  border-radius: 50%;
+  background: var(--divider);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.profile__image-placeholder svg {
+  width: 110px;
+  height: 110px;
+  fill: rgba(255, 255, 255, 0.3);
+}
+
+.profile__name {
+  font-size: 2.125rem;
+  font-weight: 400;
+  letter-spacing: 0.0073em;
+  margin-bottom: 16px;
+  color: var(--on-surface);
+}
+
+.profile__bio {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+}
+
+/* ── Page header (blog / projects pages) ─────────────── */
+
+.page-hero {
+  padding: 56px 0 48px;
+  border-bottom: 1px solid var(--divider);
+}
+
+.page-hero h1 {
+  font-size: 2.125rem;
+  font-weight: 400;
+  letter-spacing: 0.0073em;
+  margin-bottom: 8px;
+}
+
+.page-hero p {
+  color: var(--text-secondary);
+  font-size: 1rem;
+}
+
+/* ── Empty state ─────────────────────────────────────── */
+
+.empty-state {
+  padding: 80px 0;
+  text-align: center;
+  color: var(--text-secondary);
+}
+
+.empty-state__icon {
+  width: 64px;
+  height: 64px;
+  fill: var(--divider);
+  margin: 0 auto 24px;
+  display: block;
+}
+
+.empty-state h2 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--on-surface);
+  margin-bottom: 8px;
+}
+
+.empty-state p {
+  font-size: 0.9375rem;
+}
+
+/* ── Footer ──────────────────────────────────────────── */
+
+.footer {
+  padding: 24px 0;
+  border-top: 1px solid var(--divider);
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+/* ── Cards (project listing) ─────────────────────────── */
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+  padding: 48px 0;
+}
+
+.card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-1);
+  padding: 24px;
+  text-decoration: none;
+  color: var(--on-surface);
+  display: block;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-2);
+  transform: translateY(-2px);
+}
+
+.card__title {
+  font-size: 1.125rem;
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: var(--primary);
+}
+
+.card__description {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* ── Experiment list (project index) ─────────────────── */
+
+.experiment-list {
+  list-style: none;
+  padding: 40px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.experiment-list a {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 16px 20px;
+  background: var(--surface);
+  border-radius: var(--radius);
+  text-decoration: none;
+  color: var(--on-surface);
+  transition: background 0.15s ease;
+}
+
+.experiment-list a:hover {
+  background: var(--surface-raised);
+}
+
+.experiment-list__number {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  font-variant-numeric: tabular-nums;
+  min-width: 28px;
+}
+
+.experiment-list__title {
+  font-size: 0.9375rem;
+}
+
+/* ── Back link ───────────────────────────────────────── */
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.875rem;
+  margin-bottom: 24px;
+  transition: color 0.15s ease;
+}
+
+.back-link:hover {
+  color: var(--on-surface);
+}
+
+.back-link svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+/* ── SVG canvas (experiment pages) ──────────────────── */
+
+.canvas-section {
+  padding: 40px 0 64px;
+}
+
+.canvas-wrap {
+  width: 100%;
+  max-width: 1800px;
+  aspect-ratio: 1800 / 1200;
+  background: var(--surface);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-2);
+}
+
+.canvas-wrap svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* ── Responsive ──────────────────────────────────────── */
+
+@media (max-width: 640px) {
+  .profile {
+    flex-direction: column;
+    text-align: center;
+    gap: 32px;
+  }
+
+  .profile__name {
+    font-size: 1.75rem;
+  }
+
+  .hero {
+    padding: 48px 0 64px;
+  }
+}

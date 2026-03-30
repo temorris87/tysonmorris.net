@@ -1,33 +1,18 @@
-import '/src/shared/page.js';
-
-document.getElementById('back-link').innerHTML =
-  '<a href="/projects/generative-art-js-svg/" class="back-link">&#8592; Generative Art with JavaScript and SVG</a>';
-
-// Import the SvJs library.
-import { SvJs } from 'svjs'
+import { createSketch, random } from '/src/shared/sketch.js';
 
 // Create some global variables.
-const headerHeight = document.getElementById('site-header').offsetHeight;
-const footerHeight = document.getElementById('site-footer').offsetHeight;
-const availableHeight = window.innerHeight - headerHeight - footerHeight - 80; // 80 = canvas-section padding
-const isLandscape = window.innerWidth > window.innerHeight;
-const svgSize = isLandscape ? availableHeight : window.innerWidth;
-//const bgColor = '#181818';
 const bgColor = '#121212';
 
 // Create an object to store some of our randomized parameters.
 const randomized = {
   hue: random(0, 360),
   rotation: random(-180, 180),
-  iterations: random(10, 100)
-}
+  iterations: random(10, 100),
+};
 
 // Create our parent SVG and attach it to the element with id 'container'.
-const svg = new SvJs();
-svg.addTo(document.getElementById('container'));
-
 // Set the width and height of the viewBox and the displayed size of the SVG.
-svg.set({ viewBox: '0 0 1000 1000', width: svgSize, height: svgSize });
+const { svg } = createSketch({ back: 'Generative Art with JavaScript and SVG' });
 
 // Create a background layer - a rectangle the full size of our viewBox.
 const rect = svg.create('rect');
@@ -40,6 +25,7 @@ for (let i = 0; i < randomized.iterations; i++) {
   let radiusX = 100 + (i * 3);
   let radiusY = 300 + (i * 2);
   let rotation = randomized.rotation + (i * 2);
+
   // If our random hue is less than 180, increment it. Otherwise decrement it.
   let hue;
   if (randomized.hue < 180) {
@@ -57,17 +43,6 @@ for (let i = 0; i < randomized.iterations; i++) {
     ry: radiusY,
     fill: 'none',
     stroke: `hsl(${hue} 80% 80% / 0.6)`,
-    transform: `rotate(${rotation} ${center} ${center})`
+    transform: `rotate(${rotation} ${center} ${center})`,
   });
 }
-
-/**
- * Gets a random number between a minimum and maximum value.
- */
-function random(min, max, integer = true) {
-  let random = Math.random() * (max - min) + min;
-  let number = integer ? Math.floor(random) : random;
-  return number;
-}
-
-

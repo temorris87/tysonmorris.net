@@ -187,6 +187,14 @@ main {
 
 /* ── Footer ──────────────────────────────────────────── */
 
+#back-link:empty {
+  display: none;
+}
+
+#back-link {
+  margin-bottom: 8px;
+}
+
 .footer {
   padding: 24px 0;
   border-top: 1px solid var(--divider);
@@ -267,8 +275,19 @@ main {
   min-width: 28px;
 }
 
+.experiment-list__info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
 .experiment-list__title {
   font-size: 0.9375rem;
+}
+
+.experiment-list__description {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
 }
 
 /* ── Back link ───────────────────────────────────────── */

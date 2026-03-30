@@ -1,10 +1,17 @@
 import '/src/shared/page.js';
 
+document.getElementById('back-link').innerHTML =
+  '<a href="/projects/generative-art-js-svg/" class="back-link">&#8592; Generative Art with JavaScript and SVG</a>';
+
 // Import the SvJs library.
 import { SvJs } from 'svjs'
 
 // Create some global variables.
-const svgSize = window.innerWidth > window.innerHeight ? window.innerHeight : window.innerWidth;
+const headerHeight = document.getElementById('site-header').offsetHeight;
+const footerHeight = document.getElementById('site-footer').offsetHeight;
+const availableHeight = window.innerHeight - headerHeight - footerHeight - 80; // 80 = canvas-section padding
+const isLandscape = window.innerWidth > window.innerHeight;
+const svgSize = isLandscape ? availableHeight : window.innerWidth;
 //const bgColor = '#181818';
 const bgColor = '#121212';
 

@@ -91,6 +91,7 @@ body {
 
 main {
   flex: 1;
+  width: 100%;
   display: flex;
   flex-direction: column;
   min-height: 0;
@@ -325,18 +326,29 @@ main {
   flex-direction: row;
   align-items: stretch;
   padding: 0;
+  width: 100%;
 }
 
 .sketch-layout .canvas-wrap {
-  align-self: stretch;
-  aspect-ratio: 1 / 1;
+  flex: 1;
+  width: auto;
+  max-width: none;
   min-width: 0;
+  overflow: visible;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sketch-layout .canvas-wrap > div {
+  height: 100%;
+  width: auto;
+  aspect-ratio: 1 / 1;
 }
 
 .controls-panel {
   width: 260px;
   flex-shrink: 0;
-  margin-left: auto;
   padding: 24px;
   background: var(--surface);
   border-left: 1px solid var(--divider);

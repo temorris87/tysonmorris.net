@@ -10,12 +10,12 @@ function setBackLink(back) {
   }
 }
 
-function createSvg(viewBoxSize) {
+function createSvg(viewBoxWidth, viewBoxHeight) {
   const container = document.getElementById('container');
   container.innerHTML = '';
   const svg = new SvJs();
   svg.addTo(container);
-  svg.set({ viewBox: `0 0 ${viewBoxSize} ${viewBoxSize}`, width: '100%', height: '100%' });
+  svg.set({ viewBox: `0 0 ${viewBoxWidth} ${viewBoxHeight}`, width: '100%', height: '100%' });
   return svg;
 }
 
@@ -61,10 +61,11 @@ function buildControlsPanel(params, back) {
  * Sets up an SvJs canvas sized to fill the viewport between header and footer.
  * @param {object} options
  * @param {string} options.back - Back link label
- * @param {number} [options.viewBoxSize=1000] - ViewBox width and height
+ * @param {number} [options.viewBoxWidth=1000] - ViewBox width
+ * @param {number} [options.viewBoxHeight=1000] - ViewBox height
  * @returns {{ svg: SvJs, svgSize: number }}
  */
-export function createSketch({ back, viewBoxSize = 1000 } = {}) {
+export function createSketch({ back, viewBoxWidth = 1000, viewBoxHeight = 1000 } = {}) {
   setBackLink(back);
 
   const headerHeight = document.getElementById('site-header').offsetHeight;
@@ -73,7 +74,7 @@ export function createSketch({ back, viewBoxSize = 1000 } = {}) {
 
   const svg = new SvJs();
   svg.addTo(document.getElementById('container'));
-  svg.set({ viewBox: `0 0 ${viewBoxSize} ${viewBoxSize}`, width: svgSize, height: svgSize });
+  svg.set({ viewBox: `0 0 ${viewBoxWidth} ${viewBoxHeight}`, width: svgSize, height: svgSize });
 
   return { svg, svgSize };
 }
@@ -82,11 +83,12 @@ export function createSketch({ back, viewBoxSize = 1000 } = {}) {
  * Sets up an SvJs canvas with a controls panel for tweaking and regenerating parameters.
  * @param {object} options
  * @param {string} options.back - Back link label
- * @param {number} [options.viewBoxSize=1000] - ViewBox width and height
+ * @param {number} [options.viewBoxWidth=1000] - ViewBox width
+ * @param {number} [options.viewBoxHeight=1000] - ViewBox height
  * @param {object} options.params - Parameter descriptors: { key: { value, min, max, step?, label? } }
- * @param {function} options.draw - Drawing callback: (svg, params) => void
+ * @param {function} options.draw - Drawing callback: (svg, params, { width, height }) => void
  */
-export function createGenerativeSketch({ back, viewBoxSize = 1000, params = {}, draw } = {}) {
+export function createGenerativeSketch({ back, viewBoxWidth = 1000, viewBoxHeight = 1000, params = {}, draw } = {}) {
 
   // Move canvas-wrap out of its .container and directly into .canvas-section,
   // then append the controls panel so it fills the far right of the section.
@@ -106,8 +108,8 @@ export function createGenerativeSketch({ back, viewBoxSize = 1000, params = {}, 
   }
 
   function redraw() {
-    const svg = createSvg(viewBoxSize);
-    draw(svg, { ...values });
+    const svg = createSvg(viewBoxWidth, viewBoxHeight);
+    draw(svg, { ...values }, { width: viewBoxWidth, height: viewBoxHeight });
   }
 
   // Update value and redraw live as sliders move

@@ -1,39 +1,43 @@
-import { createSketch, random } from '/src/shared/sketch.js';
+import { createGenerativeSketch, random } from '/src/shared/sketch.js';
 
-// Create an object to store some of our randomized parameters.
-const randomized = {
-  hue: random(0, 360),
-  rotation: random(-180, 180),
-  iterations: random(10, 100),
-};
+createGenerativeSketch({
+  back: 'Generative Art with JavaScript and SVG',
 
-const { svg } = createSketch({ back: 'Generative Art with JavaScript and SVG' });
+  // Parameters the user can tweak in the controls panel.
+  params: {
+    hue:        { value: random(0, 360),    min: 0,    max: 360 },
+    rotation:   { value: random(-180, 180), min: -180, max: 180 },
+    iterations: { value: random(10, 100),   min: 10,   max: 100 },
+  },
 
-// Run a loop a random number of times to create our ellipses.
-for (let i = 0; i < randomized.iterations; i++) {
-  // Set the center point, the x and y radii of our ellipse and its rotation.
-  let center = 500;
-  let radiusX = 100 + (i * 3);
-  let radiusY = 300 + (i * 2);
-  let rotation = randomized.rotation + (i * 2);
+  draw(svg, p) {
+    // Run a loop a random number of times to create our ellipses.
+    for (let i = 0; i < p.iterations; i++) {
+      // Set the center point, the x and y radii of our ellipse and its rotation.
+      let center = 500;
+      let radiusX = 100 + (i * 3);
+      let radiusY = 300 + (i * 2);
+      let rotation = p.rotation + (i * 2);
 
-  // If our random hue is less than 180, increment it. Otherwise decrement it.
-  let hue;
-  if (randomized.hue < 180) {
-    hue = randomized.hue + (i * 3);
-  } else {
-    hue = randomized.hue - (i * 3);
-  }
+      // If our random hue is less than 180, increment it. Otherwise decrement it.
+      let hue;
+      if (p.hue < 180) {
+        hue = p.hue + (i * 3);
+      } else {
+        hue = p.hue - (i * 3);
+      }
 
-  // Create our ellipse.
-  let ellipse = svg.create('ellipse');
-  ellipse.set({
-    cx: center,
-    cy: center,
-    rx: radiusX,
-    ry: radiusY,
-    fill: 'none',
-    stroke: `hsl(${hue} 80% 80% / 0.6)`,
-    transform: `rotate(${rotation} ${center} ${center})`,
-  });
-}
+      // Create our ellipse.
+      let ellipse = svg.create('ellipse');
+      ellipse.set({
+        cx: center,
+        cy: center,
+        rx: radiusX,
+        ry: radiusY,
+        fill: 'none',
+        stroke: `hsl(${hue} 80% 80% / 0.6)`,
+        transform: `rotate(${rotation} ${center} ${center})`,
+      });
+    }
+  },
+});

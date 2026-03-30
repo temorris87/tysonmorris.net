@@ -24,7 +24,7 @@ body {
   background: var(--background);
   color: var(--on-surface);
   line-height: 1.6;
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
 }
@@ -93,6 +93,7 @@ main {
   flex: 1;
   display: flex;
   flex-direction: column;
+  min-height: 0;
 }
 
 /* ── Hero / About ────────────────────────────────────── */
@@ -185,23 +186,6 @@ main {
   font-size: 0.9375rem;
 }
 
-/* ── Footer ──────────────────────────────────────────── */
-
-#back-link:empty {
-  display: none;
-}
-
-#back-link {
-  margin-bottom: 8px;
-}
-
-.footer {
-  padding: 24px 0;
-  border-top: 1px solid var(--divider);
-  text-align: center;
-  color: var(--text-secondary);
-  font-size: 0.875rem;
-}
 
 /* ── Cards (project listing) ─────────────────────────── */
 
@@ -315,6 +299,7 @@ main {
   display: flex;
   align-items: center;
   padding: 40px 0;
+  min-height: 0;
 }
 
 .canvas-wrap {
@@ -332,6 +317,86 @@ main {
   display: block;
   width: 100%;
   height: 100%;
+}
+
+/* ── Generative sketch layout (canvas + controls) ───── */
+
+.canvas-section.sketch-layout {
+  flex-direction: row;
+  align-items: stretch;
+  padding: 0;
+}
+
+.sketch-layout .canvas-wrap {
+  align-self: stretch;
+  aspect-ratio: 1 / 1;
+  min-width: 0;
+}
+
+.controls-panel {
+  width: 260px;
+  flex-shrink: 0;
+  margin-left: auto;
+  padding: 24px;
+  background: var(--surface);
+  border-left: 1px solid var(--divider);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  overflow-y: auto;
+}
+
+.control {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.control__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.control__label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.control__value {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  font-variant-numeric: tabular-nums;
+}
+
+.control__slider {
+  width: 100%;
+  accent-color: var(--primary);
+  cursor: pointer;
+}
+
+.btn {
+  padding: 10px 16px;
+  background: transparent;
+  color: var(--primary);
+  border: 1px solid rgba(159, 168, 218, 0.4);
+  border-radius: var(--radius);
+  font-family: inherit;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  width: 100%;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.btn:hover {
+  background: rgba(159, 168, 218, 0.08);
+  border-color: var(--primary);
 }
 
 /* ── Responsive ──────────────────────────────────────── */

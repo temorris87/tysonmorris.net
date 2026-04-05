@@ -103,14 +103,35 @@ export function createGenerativeSketch({ back, viewBoxWidth = 1000, viewBoxHeigh
   canvasContainer.remove();
   canvasSection.appendChild(panel);
 
+  // Backdrop — tapping outside the panel closes it on mobile
+  const backdrop = document.createElement('div');
+  backdrop.className = 'controls-backdrop';
+  backdrop.addEventListener('click', () => {
+    panel.classList.remove('open');
+    backdrop.classList.remove('open');
+  });
+  canvasSection.appendChild(backdrop);
+
+  // Close button inside the panel (mobile only)
+  const closeBtn = document.createElement('button');
+  closeBtn.className = 'controls-close';
+  closeBtn.setAttribute('aria-label', 'Close controls');
+  closeBtn.innerHTML = `<span class="material-icons">close</span>`;
+  closeBtn.addEventListener('click', () => {
+    panel.classList.remove('open');
+    backdrop.classList.remove('open');
+  });
+  panel.prepend(closeBtn);
+
   // Mobile toggle button — floats over the canvas to open/close the controls panel
   const toggle = document.createElement('button');
   toggle.className = 'controls-toggle';
   toggle.setAttribute('aria-label', 'Toggle controls');
-  toggle.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="22" height="22">
-    <path d="M3 17v2h6v-2H3zM3 5v2h10V5H3zm10 16v-2h8v-2h-8v-2h-2v6h2zM7 9v2H3v2h4v2h2V9H7zm14 4v-2H11v2h10zm-6-4h2V7h4V5h-4V3h-2v6z"/>
-  </svg>`;
-  toggle.addEventListener('click', () => panel.classList.toggle('open'));
+  toggle.innerHTML = `<span class="material-icons">tune</span>`;
+  toggle.addEventListener('click', () => {
+    panel.classList.toggle('open');
+    backdrop.classList.toggle('open');
+  });
   canvasSection.appendChild(toggle);
 
   // Extract current values into a plain object passed to draw

@@ -412,7 +412,7 @@ main {
   border-color: var(--primary);
 }
 
-/* ── Controls toggle (mobile only) ──────────────────── */
+/* ── Controls toggle / close / backdrop (mobile only) ── */
 
 .controls-toggle {
   display: none;
@@ -430,6 +430,32 @@ main {
   align-items: center;
   justify-content: center;
   box-shadow: var(--shadow-2);
+}
+
+.controls-close {
+  display: none;
+  align-self: flex-end;
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 4px;
+}
+
+.controls-close:hover {
+  color: var(--on-surface);
+}
+
+.controls-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 199;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.controls-backdrop.open {
+  display: block;
 }
 
 /* ── Responsive ──────────────────────────────────────── */
@@ -450,6 +476,10 @@ main {
   }
 
   .controls-toggle {
+    display: flex;
+  }
+
+  .controls-close {
     display: flex;
   }
 

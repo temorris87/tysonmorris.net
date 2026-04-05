@@ -344,6 +344,7 @@ main {
 .sketch-layout .canvas-wrap > div {
   height: 100%;
   width: auto;
+  max-width: 100%;
   aspect-ratio: 1 / 1;
 }
 
@@ -459,6 +460,12 @@ main {
 }
 
 /* ── Responsive ──────────────────────────────────────── */
+
+@media (max-height: 500px) {
+  .header__inner {
+    height: 44px;
+  }
+}
 
 @media (max-width: 640px) {
   .profile {

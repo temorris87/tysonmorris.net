@@ -96,10 +96,22 @@ export function createGenerativeSketch({ back, viewBoxWidth = 1000, viewBoxHeigh
   const canvasContainer = canvasWrap.parentElement;
   const canvasSection = canvasWrap.closest('.canvas-section');
 
+  const panel = buildControlsPanel(params, back);
+
   canvasSection.classList.add('sketch-layout');
   canvasSection.appendChild(canvasWrap);
   canvasContainer.remove();
-  canvasSection.appendChild(buildControlsPanel(params, back));
+  canvasSection.appendChild(panel);
+
+  // Mobile toggle button — floats over the canvas to open/close the controls panel
+  const toggle = document.createElement('button');
+  toggle.className = 'controls-toggle';
+  toggle.setAttribute('aria-label', 'Toggle controls');
+  toggle.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="22" height="22">
+    <path d="M3 17v2h6v-2H3zM3 5v2h10V5H3zm10 16v-2h8v-2h-8v-2h-2v6h2zM7 9v2H3v2h4v2h2V9H7zm14 4v-2H11v2h10zm-6-4h2V7h4V5h-4V3h-2v6z"/>
+  </svg>`;
+  toggle.addEventListener('click', () => panel.classList.toggle('open'));
+  canvasSection.appendChild(toggle);
 
   // Extract current values into a plain object passed to draw
   const values = {};

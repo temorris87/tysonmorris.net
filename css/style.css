@@ -121,10 +121,10 @@ main {
   overflow: hidden;
 }
 
+.profile__image-placeholder img,
 .profile__image-placeholder svg {
   width: 110px;
   height: 110px;
-  fill: rgba(255, 255, 255, 0.3);
 }
 
 .profile__name {

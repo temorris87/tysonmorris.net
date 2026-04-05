@@ -334,7 +334,7 @@ main {
   width: auto;
   max-width: none;
   min-width: 0;
-  overflow: visible;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -484,6 +484,11 @@ main {
 
   .controls-toggle {
     display: flex;
+  }
+
+  .sketch-layout .canvas-wrap > div {
+    width: 100%;
+    height: auto;
   }
 
   .controls-close {
